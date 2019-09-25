@@ -49,18 +49,18 @@ class ViewController: UIViewController {
         button.center = CGPoint(x: view.frame.width/2, y: view.frame.height - 2*margin - 35)
         button.backgroundColor = UIColor.white
         button.layer.cornerRadius = 5.0
-        button.setTitle("Change Logo", for: UIControlState())
-        button.setTitleColor(UIColor.black, for: UIControlState())
+        button.setTitle("Change Logo", for: UIControl.State())
+        button.setTitleColor(UIColor.black, for: UIControl.State())
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.addTarget(self, action: #selector(changeLogo), for: .touchUpInside)
         window!.addSubview(button)
     }
     
-    func segmentedControlTouch(_ sender: UISegmentedControl) {
+    @objc func segmentedControlTouch(_ sender: UISegmentedControl) {
         presentFillableLoader(at: sender.selectedSegmentIndex)
     }
     
-    func changeLogo() {
+    @objc func changeLogo() {
         firstLogo = !firstLogo
         presentFillableLoader(at: segmentedControl.selectedSegmentIndex)
     }
@@ -78,8 +78,8 @@ class ViewController: UIViewController {
             loader = WavesLoader.showLoader(with: path())
         }
         let window = UIApplication.shared.delegate?.window!
-        window!.bringSubview(toFront: segmentedControl)
-        window!.bringSubview(toFront: button)
+        window!.bringSubviewToFront(segmentedControl)
+        window!.bringSubviewToFront(button)
     }
     
     func path() -> CGPath{
