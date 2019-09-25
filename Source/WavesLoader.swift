@@ -35,7 +35,7 @@ open class WavesLoader: FillableLoader {
         waveAnimation.values = shapesArray(7)
         waveAnimation.duration = 2.0
         waveAnimation.isRemovedOnCompletion = false
-        waveAnimation.fillMode = kCAFillModeForwards
+        waveAnimation.fillMode = CAMediaTimingFillMode.forwards
         waveAnimation.delegate = self
         waveAnimation.setValue("shape", forKey: "animation")
         shapeLayer.add(waveAnimation, forKey: "shape")
